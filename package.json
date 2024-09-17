@@ -1,0 +1,21 @@
+{
+  "name": "memlsplatlib",
+  "version": "1.0.0",
+  "description": "Library with helper classes to develop immersive experiences using three.js' Luma WebGL Library. Developed in the Mobile and Environmental Media Lab in 2024.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@lumaai/luma-web": "^0.1.20",
+    "install": "^0.13.0",
+    "npm": "^10.4.0",
+    "three": "^0.161.0",
+    "three-addons": "^1.2.0"
+  },
+  "devDependencies": {
+    "vite": "^5.0.12"
+  }
+}
