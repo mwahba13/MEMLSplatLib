@@ -1,5 +1,5 @@
 import { Splat } from './Splat';
-import { Camera, Clock,  Mesh, MeshBasicMaterial, PlaneGeometry, TextureLoader} from 'three';
+import { Camera, Clock,  Mesh, MeshBasicMaterial, PlaneGeometry, TextureLoader, Scene} from 'three';
 import { TIFFLoader } from 'three/examples/jsm/loaders/TIFFLoader.js';
 
 
@@ -7,7 +7,7 @@ import { TIFFLoader } from 'three/examples/jsm/loaders/TIFFLoader.js';
 export class SplatQueue {
 
     //scene properties
-    currentScene : THREE.Scene;
+    currentScene : Scene;
 
     //splat properties
     currentSplat: Splat;
@@ -16,14 +16,15 @@ export class SplatQueue {
 
     //time properties
     sequenceLength: number;
-    timer:THREE.Clock;
+    timer: Clock;
 
     isFinished: boolean;
-    hasStarted:boolean;
+    hasStarted: boolean;
+    loop: boolean;
 
     camera:Camera;
 
-    constructor(scene:THREE.Scene)
+    constructor(scene: Scene, camera: Camera)
     {
         this.currentSplatIndex = 0  ;
         this.timer = new Clock();
@@ -33,6 +34,8 @@ export class SplatQueue {
         this.currentScene = scene;
         this.isFinished = false;
         this.hasStarted = false;
+        this.loop = false;
+        this.camera = camera;
     }
 
     public AddSplatToQueue(splat:Splat)
@@ -99,9 +102,12 @@ export class SplatQueue {
             }
 
             this.currentSplat.Tick(this.timer);
-    
         }
-        
+    }
+
+    public StartSplatQueue()
+    {
+        this.hasStarted = true;
     }
 
     private LoadNextSplat()
@@ -154,23 +160,14 @@ export class SplatQueue {
 
     private OnFinish()
     {
-
-        let geo = new PlaneGeometry();
-        let loader = new TIFFLoader();
-        let planeMesh = new Mesh();
-
-
-        console.log("load credits");
-
-        const texture = new TextureLoader().load('tex/SparkEndCard.jpg');
-
-        const mat = new MeshBasicMaterial({map:texture});
-        planeMesh.geometry = geo;
-        planeMesh.material = mat;
-        planeMesh.position.set(0,0,4);
-
-        this.currentScene.add(planeMesh)
-        //this.currentScene.background = new Color("white");
+        if(this.loop)
+        {
+            this.timer = new Clock();
+            this.isFinished = false;
+            this.hasStarted = true;
+            this.currentSplatIndex = 0;
+            this.LoadSceneByIndex(0);            
+        }
     }
 
 }
