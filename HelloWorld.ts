@@ -1,6 +1,7 @@
 import * as three from "three";
 import * as Splat from "./src/Splat";
 import * as SplatQueue from "./src/SplatQueue";
+import { DebugAction } from "./src/SplatAction";
 
 //Example showing capability to have multiple splats strung together in sequence
 
@@ -24,13 +25,15 @@ let splatQueue = new SplatQueue.SplatQueue(scene, camera);
 
 //init splat objects
 let statue_splat = new Splat.Splat("https://lumalabs.ai/capture/f45a5f26-3b70-4bfa-9c7a-5d95a1df942f");
-statue_splat.sceneTimer = 2;
+statue_splat.sceneTimer = 5;
+statue_splat.EnqueueSplatAction(new DebugAction(statue_splat), 2);
+
 
 let deer_splat = new Splat.Splat("https://lumalabs.ai/capture/422972cb-59f7-46e0-87dc-36015cb7286b");
-deer_splat.sceneTimer = 2;
+deer_splat.sceneTimer = 5;
 
 let vest_splat = new Splat.Splat("https://lumalabs.ai/capture/067b46c8-d737-42be-9112-a4654a506855");
-vest_splat.sceneTimer = 2;
+vest_splat.sceneTimer = 5;
 
 //add splat objects to queue
 splatQueue.AddSplatToQueue(statue_splat);

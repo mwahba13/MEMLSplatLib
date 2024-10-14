@@ -1,29 +1,31 @@
 import { LumaSplatsThree } from '@lumaai/luma-web';
+import "./SplatAction";
 import { Box3,  Clock, Color,  FogExp2,  Mesh, MeshBasicMaterial, SphereGeometry, Uniform, Vector3, Vector4 } from 'three';
 
 //basic splat - can be cropped and transformed
 export class Splat{
     //luma
-    uri:string;
-    lumaSplat:LumaSplatsThree;
+    private uri:string;
+    private lumaSplat:LumaSplatsThree;
 
     //transform
     position:Vector3;
     rotation:Vector3;
     rgba:Vector4;
     opacity: number;
-    opacityUni:Uniform;
-    time:Uniform;
+    
+    private opacityUni:Uniform;
+    private time:Uniform;
 
     //uniforms
     x:number;
     y:number;
     z:number;
-    colAdj:number;
-    xUni:Uniform;
-    yUni:Uniform;
-    zUni:Uniform;
-    colAdjUni:Uniform;
+    private colAdj:number;
+    private xUni:Uniform;
+    private yUni:Uniform;
+    private zUni:Uniform;
+    private colAdjUni:Uniform;
     
     //box
     boundingBox:Box3;

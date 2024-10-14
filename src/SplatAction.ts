@@ -75,22 +75,3 @@ export class ChangeZValueAction extends SplatAction{
         return true;
     }
 }
-
-export class SetXInterpAction extends SplatAction
-{
-    x:number;
-    y:number;
-    timeRange:number = -1;
-    constructor(splat:Splat,num:number)
-    {
-        super(splat);
-    }
-
-    public executeAction(clock: Clock): boolean {
-
-
-
-
-        return false;
-    }
-}
