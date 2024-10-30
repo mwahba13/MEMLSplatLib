@@ -1,7 +1,8 @@
 import * as three from "three";
-import * as Splat from "./src/Splat";
-import * as SplatQueue from "./src/SplatQueue";
-import { DebugAction } from "./src/SplatAction";
+import * as Splat from "../src/Splat";
+import * as SplatQueue from "../src/SplatQueue";
+import {OrbitControls} from "three-addons"
+import { DebugAction } from "../src/SplatAction";
 
 //Example showing capability to have multiple splats strung together in sequence
 
@@ -19,6 +20,8 @@ let scene = new three.Scene();
 //init camera
 let camera = new three.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
 camera.position.z = 5;
+
+const controls = new OrbitControls(camera, renderer.domElement);
 
 //init splat queue
 let splatQueue = new SplatQueue.SplatQueue(scene, camera);
@@ -48,6 +51,7 @@ animate();
 function animate()
 {
     renderer.setAnimationLoop(function () {
+        controls.update();
         renderer.render(scene, camera);
         splatQueue.Tick();
     })

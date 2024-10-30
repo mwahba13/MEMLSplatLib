@@ -141,7 +141,7 @@ export class SplatQueue {
                     this.currentSplat.EndScene();
                     this.currentSplat.RemoveFromScene();
 
-                    this.camera.position.set(0,0,0);
+                   // this.camera.position.set(0,0,0);
     
                     //add new scene
                     this.currentSplat = this.splats[this.currentSplatIndex];
