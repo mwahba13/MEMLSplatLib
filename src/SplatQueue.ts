@@ -2,8 +2,6 @@ import { Splat } from './Splat';
 import { Camera, Clock,  Mesh, MeshBasicMaterial, PlaneGeometry, TextureLoader, Scene} from 'three';
 import { TIFFLoader } from 'three/examples/jsm/loaders/TIFFLoader.js';
 
-
-
 export class SplatQueue {
 
     //scene properties
