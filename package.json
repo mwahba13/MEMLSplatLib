@@ -1,6 +1,6 @@
 {
   "name": "memlsplatlib",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Library with helper classes to develop immersive experiences using three.js' Luma WebGL Library. Developed in the Mobile and Environmental Media Lab in 2024.",
   "main": "index.html",
   "scripts": {
