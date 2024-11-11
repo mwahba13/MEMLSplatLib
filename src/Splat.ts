@@ -5,8 +5,8 @@ import { Box3,  Clock, Color,  FogExp2,  Mesh, MeshBasicMaterial, SphereGeometry
 //basic splat - can be cropped and transformed
 export class Splat{
     //luma
-    private uri:string;
-    private lumaSplat:LumaSplatsThree;
+    protected uri:string;
+    protected lumaSplat:LumaSplatsThree;
 
     //transform
     position:Vector3;
@@ -14,18 +14,18 @@ export class Splat{
     rgba:Vector4;
     opacity: number;
     
-    private opacityUni:Uniform;
-    private time:Uniform;
+    protected opacityUni:Uniform;
+    protected time:Uniform;
 
     //uniforms
     x:number;
     y:number;
     z:number;
-    private colAdj:number;
-    private xUni:Uniform;
-    private yUni:Uniform;
-    private zUni:Uniform;
-    private colAdjUni:Uniform;
+    protected colAdj:number;
+    protected xUni:Uniform;
+    protected yUni:Uniform;
+    protected zUni:Uniform;
+    protected colAdjUni:Uniform;
     
     //box
     boundingBox:Box3;

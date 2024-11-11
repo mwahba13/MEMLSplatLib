@@ -1,6 +1,7 @@
 import * as three from "three";
 import { LumaSplatsThree } from "@lumaai/luma-web";
 import {OrbitControls} from 'three/addons'
+import { Splat } from "../../src/Splat";
 
 //init renderer and add to doc
 let renderer = new three.WebGLRenderer({antialias: false});
